@@ -82,7 +82,7 @@ def call_llm(row):
         llm_resp += chunk
     return json_parse_dirty(llm_resp)
 
-# 11.17 ->
+# 11.17 -> 14:05
 print(df_comments.columns)
 for index, row in df_comments.iterrows():
     # 检查 MongoDB 是否已有记录
