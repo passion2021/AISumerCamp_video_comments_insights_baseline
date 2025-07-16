@@ -4,10 +4,10 @@ import pandas as pd
 
 from libs.qwen_embed import QwenEmbeddingTransformer
 
+qwen_transformer = QwenEmbeddingTransformer(model_path=r'E:\ai-eb\models\Qwen3-Embedding-0.6B')
 comments_data = pd.read_csv('./origin_comments_data.csv')
 for col in ['sentiment_category',
             'user_scenario', 'user_question', 'user_suggestion']:
-    qwen_transformer = QwenEmbeddingTransformer()
     predictor = make_pipeline(
         qwen_transformer,
         SGDClassifier(max_iter=1000, random_state=42)  # 增加迭代次数确保收敛
@@ -22,8 +22,6 @@ for col in ['sentiment_category',
 
     # 对所有视频数据的text进行预测（注意处理空文本或无效输入）
     comments_data[col] = predictor.predict(comments_data["comment_text"])
-
-
 
 # 保存到新的 CSV 文件中
 comments_data.to_csv('./predicted_comments_data.csv', index=False, encoding='utf-8-sig')
