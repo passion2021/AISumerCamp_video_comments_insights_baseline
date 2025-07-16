@@ -172,8 +172,6 @@ submodules/
 testcases/data
 testcases/html
 
-
-/data
 /script
 /chroma_data
 bge_onnx/

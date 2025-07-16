@@ -123,6 +123,6 @@ if __name__ == '__main__':
     # comments_data = sentiment_classify(comments_data)
     comments_data = pd.read_csv(r"E:\AISumerCamp_video_comments_insights_baseline\data\predicted_comments_data.csv")
     comments_data = execute_cluster(comments_data)
-    video_data = pd.read_csv("data/copy/submit_videos.csv")
+    video_data = pd.read_csv("data/submit_videos.csv")
 
     generate_zip(video_data, comments_data)
